@@ -1,4 +1,5 @@
 streamlit
-tensorflow-intel==2.14.0
+keras
 pillow
 numpy
+h5py
