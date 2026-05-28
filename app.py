@@ -1,9 +1,8 @@
 import streamlit as st
+from tensorflow.keras.models import model_from_json
 from PIL import Image, UnidentifiedImageError
 import numpy as np
 import os
-import json
-import keras
 
 st.set_page_config(page_title="Classificador Gats vs Gossos", layout="centered")
 st.title("Classificador de Gossos i Gats")
@@ -16,7 +15,7 @@ if not os.path.exists("model_gats_gossos.json") or not os.path.exists("model_gat
 else:
     with open("model_gats_gossos.json", "r") as json_file:
         model_json = json_file.read()
-    model = keras.models.model_from_json(model_json)
+    model = model_from_json(model_json)
     model.load_weights("model_gats_gossos.weights.h5")
 
     if uploaded_file is not None:
